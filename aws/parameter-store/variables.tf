@@ -18,4 +18,9 @@ variable "type" {
 variable "create" {
   default = true
 }
-
+# ------------------------------------------
+# Credential Profile
+# ------------------------------------------
+variable "profile" {
+  default = "default"
+}
