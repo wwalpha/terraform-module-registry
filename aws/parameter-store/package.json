@@ -1,0 +1,9 @@
+{
+  "name": "parameter-store",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "plan": "terraform plan -var-file test.tfvars -out tfplan",
+    "start": "yarn plan && terraform apply tfplan"
+  }
+}
