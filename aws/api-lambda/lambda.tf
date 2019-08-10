@@ -1,5 +1,5 @@
 module "lambda" {
-  source = "github.com/wwalpha/terraform-modules-lambda"
+  source = "../lambda"
 
   // Lambda Function
   function_name    = "${local.lambda_full_name}"

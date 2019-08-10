@@ -8,7 +8,7 @@ output "resource_path_src" {
   value = "${local.resource_path_src}"
 }
 output "resource_path_new" {
-  value = "${aws_api_gateway_resource.this[0].path}"
+  value = "${aws_api_gateway_resource.this.0.path}"
 }
 output "lambda_function_name" {
   value = "${var.lambda_function_name}"
