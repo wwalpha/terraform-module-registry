@@ -86,32 +86,25 @@ variable "lambda_runtime" {}
 variable "lambda_role_name" {
   default = null
 }
-
 variable "lambda_timeout" {
   default = 10
 }
-
 variable "lambda_reserved_concurrent_executions" {
   default = -1
 }
-
 variable "lambda_envs" {
   type    = "map"
   default = null
 }
-
 variable "lambda_tags" {
   default = {}
 }
-
 variable "lambda_log_retention_in_days" {
   default = 30
 }
-
 variable "lambda_role_policy_json" {
   default = []
 }
-
 variable "lambda_publish" {
   default = true
 }
