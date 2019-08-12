@@ -80,40 +80,38 @@ data "aws_iam_policy_document" "logging" {
 # ------------------------------
 # AWS Lambda Role Policy
 # ------------------------------
-resource "aws_iam_role_policy" "policy0" {
-  depends_on = ["aws_iam_role.this"]
-
+resource "aws_iam_role_policy" "policy" {
   role   = "${aws_iam_role.this.id}"
-  policy = "${var.role_policy_json[0]}"
+  policy = "${var.role_policy_json[count.index]}"
 
-  count = "${length(var.role_policy_json) > 0 ? 1 : 0}"
+  count = "${length(var.role_policy_json)}"
 }
 
-resource "aws_iam_role_policy" "policy1" {
-  depends_on = ["aws_iam_role.this"]
+# resource "aws_iam_role_policy" "policy1" {
+#   depends_on = ["aws_iam_role.this"]
 
-  role   = "${aws_iam_role.this.id}"
-  policy = "${var.role_policy_json[1]}"
+#   role   = "${aws_iam_role.this.id}"
+#   policy = "${var.role_policy_json[1]}"
 
-  count = "${length(var.role_policy_json) > 1 ? 1 : 0}"
-}
-resource "aws_iam_role_policy" "policy2" {
-  depends_on = ["aws_iam_role.this"]
+#   count = "${length(var.role_policy_json) > 1 ? 1 : 0}"
+# }
+# resource "aws_iam_role_policy" "policy2" {
+#   depends_on = ["aws_iam_role.this"]
 
-  role   = "${aws_iam_role.this.id}"
-  policy = "${var.role_policy_json[2]}"
+#   role   = "${aws_iam_role.this.id}"
+#   policy = "${var.role_policy_json[2]}"
 
-  count = "${length(var.role_policy_json) > 2 ? 1 : 0}"
-}
+#   count = "${length(var.role_policy_json) > 2 ? 1 : 0}"
+# }
 
-resource "aws_iam_role_policy" "policy3" {
-  depends_on = ["aws_iam_role.this"]
+# resource "aws_iam_role_policy" "policy3" {
+#   depends_on = ["aws_iam_role.this"]
 
-  role   = "${aws_iam_role.this.id}"
-  policy = "${var.role_policy_json[3]}"
+#   role   = "${aws_iam_role.this.id}"
+#   policy = "${var.role_policy_json[3]}"
 
-  count = "${length(var.role_policy_json) > 3 ? 1 : 0}"
-}
+#   count = "${length(var.role_policy_json) > 3 ? 1 : 0}"
+# }
 
 # ------------------------------
 # AWS Role Policy Attachment
