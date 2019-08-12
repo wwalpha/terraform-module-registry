@@ -83,7 +83,9 @@ variable "lambda_memory_size" {
 
 variable "lambda_runtime" {}
 
-variable "lambda_role_name" {}
+variable "lambda_role_name" {
+  default = null
+}
 
 variable "lambda_timeout" {
   default = 10
