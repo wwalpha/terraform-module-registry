@@ -4,7 +4,7 @@ module "lambda" {
   // Lambda Function
   function_name    = "${local.lambda_full_name}"
   description      = "${var.lambda_description}"
-  role_name        = "${local.lambda_default_role_name}"
+  role_name        = "${local.lambda_role_name}"
   role_policy_json = "${var.lambda_role_policy_json}"
   handler          = "${var.lambda_handler}"
   runtime          = "${var.lambda_runtime}"
