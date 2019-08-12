@@ -4,7 +4,7 @@ module "lambda" {
   // Lambda Function
   function_name    = "${local.lambda_full_name}"
   description      = "${var.lambda_description}"
-  role_name        = "${var.project_name}_${var.lambda_function_name}Role"
+  role_name        = "${local.lambda_default_role_name}"
   role_policy_json = "${var.lambda_role_policy_json}"
   handler          = "${var.lambda_handler}"
   runtime          = "${var.lambda_runtime}"
@@ -17,10 +17,8 @@ module "lambda" {
   filename         = "${var.lambda_filename}"
   enable_dummy     = "${var.lambda_enable_dummy}"
   enable_xray      = "${var.lambda_enable_xray}"
-
   // Lambda Alias
   alias_name = "${var.lambda_alias_name}"
-
   // CloudWatch
   log_retention_in_days = "${var.lambda_log_retention_in_days}"
 }
@@ -29,7 +27,6 @@ module "lambda" {
 # AWS Lambda Role Permission
 # ------------------------------
 resource "aws_lambda_permission" "this" {
-
   statement_id  = "AllowExecutionFromAPIGateway"
   principal     = "apigateway.amazonaws.com"
   action        = "lambda:InvokeFunction"
