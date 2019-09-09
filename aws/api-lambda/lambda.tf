@@ -15,6 +15,7 @@ module "lambda" {
   variables        = "${var.lambda_envs}"
   tags             = "${var.lambda_tags}"
   filename         = "${var.lambda_filename}"
+  source_code_hash = "${var.lambda_source_code_hash}"
   enable_dummy     = "${var.lambda_enable_dummy}"
   enable_xray      = "${var.lambda_enable_xray}"
   // Lambda Alias
