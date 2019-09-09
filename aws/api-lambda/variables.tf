@@ -54,9 +54,11 @@ variable "enable_cors" {
 # AWS Lambda Function
 # ------------------------------
 variable "lambda_filename" {
-  default = ""
+  default = null
 }
-
+variable "lambda_source_code_hash" {
+  default = null
+}
 # variable "lambda_s3_bucket" {
 #   default = ""
 # }
