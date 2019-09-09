@@ -28,6 +28,10 @@ variable "method_authorization" {
   default = "NONE"
 }
 
+variable "method_api_key_required" {
+  default = false
+}
+
 variable "request_parameters" {
   type    = "map"
   default = {}
