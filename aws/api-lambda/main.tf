@@ -42,15 +42,13 @@ resource "aws_api_gateway_request_validator" "this" {
 resource "aws_api_gateway_integration" "this" {
   depends_on = ["aws_api_gateway_method.this"]
 
-  rest_api_id      = "${var.rest_api_id}"
-  resource_id      = "${local.resource_id}"
-  http_method      = "${var.http_method}"
-  content_handling = "CONVERT_TO_TEXT"
-
+  rest_api_id             = "${var.rest_api_id}"
+  resource_id             = "${local.resource_id}"
+  http_method             = "${var.http_method}"
+  content_handling        = "CONVERT_TO_TEXT"
   integration_http_method = "${local.integration_http_method}"
   type                    = "${local.integration_type}"
-
-  uri = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${module.lambda.arn}:${var.lambda_alias_name}/invocations"
+  uri                     = "${local.lambda_uri}"
 
   lifecycle {
     create_before_destroy = false
