@@ -4,6 +4,7 @@ resource "aws_api_gateway_method" "this" {
   resource_id          = "${local.resource_id}"
   http_method          = "${var.http_method}"
   authorization        = "${var.method_authorization}"
+  api_key_required     = "${var.method_api_key_required}"
   request_validator_id = "${aws_api_gateway_request_validator.this.id}"
 
   request_parameters = "${var.request_parameters}"
