@@ -2,7 +2,7 @@ module "lambda" {
   source = "../lambda"
 
   // Lambda Function
-  function_name         = "${local.lambda_full_name}"
+  function_name         = "${local.lambda_function_name}"
   description           = "${var.lambda_description}"
   role_name             = "${local.lambda_role_name}"
   role_policy_json      = "${var.lambda_role_policy_json}"
