@@ -30,7 +30,7 @@ resource "aws_lambda_permission" "this" {
   principal     = "apigateway.amazonaws.com"
   action        = "lambda:InvokeFunction"
   function_name = "${module.lambda.arn}"
-  qualifier     = "${var.lambda_alias_name}"
+  qualifier     = "${local.lambda_alias_name}"
 
   source_arn = "arn:aws:execute-api:${var.region}:${data.aws_caller_identity.current.account_id}:${var.rest_api_id}/*/${var.http_method}${local.resource_path}"
 }
