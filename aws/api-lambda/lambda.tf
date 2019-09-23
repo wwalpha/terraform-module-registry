@@ -16,9 +16,9 @@ module "lambda" {
   tags                  = "${var.lambda_tags}"
   filename              = "${var.lambda_filename}"
   source_code_hash      = "${var.lambda_source_code_hash}"
-  enable_dummy          = "${local.lambda_enable_dummy}"
-  enable_xray           = "${var.lambda_enable_xray}"
-  alias_name            = "${var.lambda_alias_name}"
+  enable_dummy          = "${local.lambda_dummy_enabled}"
+  enable_xray           = "${var.lambda_xray_enabled}"
+  alias_name            = "${local.lambda_alias_name}"
   log_retention_in_days = "${var.lambda_log_retention_in_days}"
 }
 
