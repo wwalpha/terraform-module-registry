@@ -27,7 +27,7 @@ variable "method_path_part" {
 variable "method_authorization" {
   default = "NONE"
 }
-
+variable "method_authorizer_id" {}
 variable "request_parameters" {
   type    = "map"
   default = {}
@@ -83,9 +83,7 @@ variable "lambda_memory_size" {
 
 variable "lambda_runtime" {}
 
-variable "lambda_role_name" {
-  default = null
-}
+variable "lambda_role_name" {}
 variable "lambda_timeout" {
   default = 10
 }
@@ -93,8 +91,7 @@ variable "lambda_reserved_concurrent_executions" {
   default = -1
 }
 variable "lambda_envs" {
-  type    = "map"
-  default = null
+  type = "map"
 }
 variable "lambda_tags" {
   default = {}
