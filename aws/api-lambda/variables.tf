@@ -3,7 +3,6 @@
 # ------------------------------
 variable "region" {}
 variable "project_name" {}
-
 # ------------------------------
 # Amazon API Gateway 
 # ------------------------------
@@ -28,20 +27,14 @@ variable "method_authorization" {
   default = "NONE"
 }
 variable "method_authorizer_id" {}
+variable "method_api_key_required" {
+  default = false
+}
+
 variable "request_parameters" {
   type    = "map"
   default = {}
 }
-
-# variable "allow_headers" {
-#   default = null
-# }
-# variable "allow_methods" {
-#   default = null
-# }
-# variable "allow_origin" {
-#   default = null
-# }
 variable "enable_cors" {
   default = true
 }
@@ -50,9 +43,11 @@ variable "enable_cors" {
 # AWS Lambda Function
 # ------------------------------
 variable "lambda_filename" {
-  default = ""
+  default = null
 }
-
+variable "lambda_source_code_hash" {
+  default = null
+}
 # variable "lambda_s3_bucket" {
 #   default = ""
 # }
@@ -64,7 +59,6 @@ variable "lambda_filename" {
 # variable "lambda_s3_object_version" {
 #   default = ""
 # }
-
 variable "lambda_function_name" {}
 
 variable "lambda_handler" {}
@@ -105,10 +99,10 @@ variable "lambda_role_policy_json" {
 variable "lambda_publish" {
   default = true
 }
-variable "lambda_enable_dummy" {
+variable "lambda_dummy_enabled" {
   default = true
 }
-variable "lambda_enable_xray" {
+variable "lambda_xray_enabled" {
   default = true
 }
 # dead_letter_config - (Optional) Nested block to configure the function's dead letter queue. See details below.
@@ -125,6 +119,9 @@ variable "lambda_enable_xray" {
 # ------------------------------
 # AWS Lambda Function Alias
 # ------------------------------
+variable "lambda_alias_enabled" {
+  default = false
+}
 variable "lambda_alias_name" {
   default = "dev"
 }

@@ -14,7 +14,7 @@ output "lambda_function_name" {
   value = "${var.lambda_function_name}"
 }
 output "lambda_full_name" {
-  value = "${local.lambda_full_name}"
+  value = "${local.lambda_function_name}"
 }
 output "lambda_alias_arn" {
   value = "${module.lambda.alias_arn}"
