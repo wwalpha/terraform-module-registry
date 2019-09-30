@@ -85,7 +85,8 @@ variable "lambda_reserved_concurrent_executions" {
   default = -1
 }
 variable "lambda_envs" {
-  type = "map"
+  type    = "map"
+  default = null
 }
 variable "lambda_tags" {
   default = {}
