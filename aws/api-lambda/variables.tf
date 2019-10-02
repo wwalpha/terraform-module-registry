@@ -26,7 +26,9 @@ variable "method_path_part" {
 variable "method_authorization" {
   default = "NONE"
 }
-variable "method_authorizer_id" {}
+variable "method_authorizer_id" {
+  default = null
+}
 variable "method_api_key_required" {
   default = false
 }
