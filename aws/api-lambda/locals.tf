@@ -1,8 +1,7 @@
 locals {
   configs_path                 = "./configs"
-  lambda_default_function_name = "${var.project_name}_${var.lambda_function_name}"
-  lambda_function_name         = "${var.lambda_function_name != null ? var.lambda_function_name : local.lambda_default_function_name}"
-  lambda_default_role_name     = "${local.lambda_default_function_name}Role"
+  lambda_function_name         = "${var.lambda_function_name}"
+  lambda_default_role_name     = "${var.lambda_function_name}Role"
   lambda_role_name             = "${var.lambda_role_name != null ? var.lambda_role_name : local.lambda_default_role_name}"
   lambda_uri_prefix            = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${module.lambda.arn}"
   lambda_uri                   = "${local.lambda_alias_name != null ? "${local.lambda_uri_prefix}:${var.lambda_alias_name}/invocations" : "${local.lambda_uri_prefix}/invocations"}"

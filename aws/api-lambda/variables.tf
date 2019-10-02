@@ -2,7 +2,6 @@
 # AWS Common
 # ------------------------------
 variable "region" {}
-variable "project_name" {}
 # ------------------------------
 # Amazon API Gateway 
 # ------------------------------
