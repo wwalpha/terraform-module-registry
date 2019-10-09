@@ -11,10 +11,10 @@ locals {
   tracing_config          = "${local.mode != null ? list(local.mode) : local.empty_array}"
   vpc_config              = "${var.subnet_ids != null ? map("subnet_ids", var.subnet_ids, "security_group_ids", var.security_group_ids) : local.empty_map}"
   routing_config          = "${var.additional_version_weights != null ? list(var.additional_version_weights) : local.empty_array}"
-  filename                = "${var.enable_dummy ? "${path.module}/index.zip" : var.filename}"
-  source_code_hash        = "${var.enable_dummy ? "${filebase64sha256("${path.module}/index.zip")}" : var.source_code_hash}"
+  filename                = "${var.dummy_enabled ? "${path.module}/index.zip" : var.filename}"
+  source_code_hash        = "${var.dummy_enabled ? "${filebase64sha256("${path.module}/index.zip")}" : var.source_code_hash}"
   ignore_changes          = "${var.publish ? list("source_code_hash", "qualified_arn", "version", "last_modified") : null}"
-  aws_lambda_function     = "${var.enable_dummy ? aws_lambda_function.dummy[0] : aws_lambda_function.this[0]}"
+  aws_lambda_function     = "${var.dummy_enabled ? aws_lambda_function.dummy[0] : aws_lambda_function.this[0]}"
   aws_xray_write_only_arn = "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess"
 
   enable_permission_smarthome = "${var.trigger_principal == "alexa-connectedhome.amazon.com" ? 1 : 0}"

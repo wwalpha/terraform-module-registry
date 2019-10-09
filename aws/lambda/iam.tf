@@ -120,5 +120,5 @@ resource "aws_iam_role_policy_attachment" "this" {
   role       = "${aws_iam_role.this.name}"
   policy_arn = "${local.aws_xray_write_only_arn}"
 
-  count = "${var.enable_xray ? 1 : 0}"
+  count = "${var.xray_enabled ? 1 : 0}"
 }

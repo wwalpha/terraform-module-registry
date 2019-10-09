@@ -1,8 +1,8 @@
-output "enable_xray" {
-  value = "${var.enable_xray}"
+output "xray_enabled" {
+  value = "${var.xray_enabled}"
 }
-output "enable_dummy" {
-  value = "${var.enable_dummy}"
+output "dummy_enabled" {
+  value = "${var.dummy_enabled}"
 }
 # function_name - A unique name for your Lambda Function.
 output "function_name" {

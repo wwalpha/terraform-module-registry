@@ -62,7 +62,7 @@ resource "aws_lambda_function" "this" {
     ignore_changes        = ["qualified_arn", "version", "last_modified"]
   }
 
-  count = "${var.enable_dummy ? 0 : 1}"
+  count = "${var.dummy_enabled ? 0 : 1}"
 }
 
 resource "aws_lambda_function" "dummy" {
