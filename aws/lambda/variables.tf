@@ -5,11 +5,11 @@ variable "log_retention_in_days" {
   default = null
 }
 
-variable "enable_dummy" {
+variable "dummy_enabled" {
   default = false
 }
 
-variable "enable_xray" {
+variable "xray_enabled" {
   default = false
 }
 

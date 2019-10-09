@@ -13,8 +13,6 @@ resource "aws_api_gateway_method" "this" {
   lifecycle {
     create_before_destroy = false
   }
-
-  depends_on = ["aws_api_gateway_request_validator.this"]
 }
 
 resource "aws_api_gateway_method_response" "this" {

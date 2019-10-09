@@ -126,7 +126,7 @@ resource "aws_lambda_function" "dummy" {
     ignore_changes        = ["source_code_hash", "qualified_arn", "version", "last_modified"]
   }
 
-  count = "${var.enable_dummy ? 1 : 0}"
+  count = "${var.dummy_enabled ? 1 : 0}"
 }
 
 # ------------------------------------------
