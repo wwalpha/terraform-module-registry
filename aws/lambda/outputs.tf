@@ -24,6 +24,10 @@ output "alias_arn" {
 output "invoke_arn" {
   value = "${local.aws_lambda_function.invoke_arn}"
 }
+# alias_invoke_arn - The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's uri
+output "alias_invoke_arn" {
+  value = "${aws_lambda_alias.this.0.invoke_arn}"
+}
 # version - Latest published version of your Lambda Function.
 output "version" {
   value = "${local.aws_lambda_function.version}"
