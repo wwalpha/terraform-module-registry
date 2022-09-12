@@ -17,17 +17,17 @@ output "qualified_arn" {
   value = "${local.aws_lambda_function.qualified_arn}"
 }
 # The Amazon Resource Name (ARN) identifying your Lambda function alias.
-output "alias_arn" {
-  value = "${aws_lambda_alias.this[0].arn}"
-}
+# output "alias_arn" {
+#   value = "${aws_lambda_alias.this[0].arn}"
+# }
 # invoke_arn - The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's uri
 output "invoke_arn" {
   value = "${local.aws_lambda_function.invoke_arn}"
 }
 # alias_invoke_arn - The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's uri
-output "alias_invoke_arn" {
-  value = "${aws_lambda_alias.this[0].invoke_arn}"
-}
+# output "alias_invoke_arn" {
+#   value = "${aws_lambda_alias.this[0].invoke_arn}"
+# }
 # version - Latest published version of your Lambda Function.
 output "version" {
   value = "${local.aws_lambda_function.version}"
