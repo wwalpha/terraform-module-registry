@@ -5,10 +5,10 @@ locals {
   empty_array = []
   empty_map   = {}
 
-  dead_letter_config      = "${var.target_arn != null ? list(var.target_arn) : local.empty_array}"
-  environment             = "${var.variables != null ? list(var.variables) : local.empty_array}"
+  dead_letter_config      = "${var.target_arn != null ? tolist(var.target_arn) : local.empty_array}"
+  environment             = "${var.variables != null ? tolist(var.variables) : local.empty_array}"
   mode                    = "${var.xray_enabled ? "Active" : var.mode}"
-  tracing_config          = "${local.mode != null ? list(local.mode) : local.empty_array}"
+  tracing_config          = "${local.mode != null ? tolist(local.mode) : local.empty_array}"
   vpc_config              = "${var.subnet_ids != null ? map("subnet_ids", var.subnet_ids, "security_group_ids", var.security_group_ids) : local.empty_map}"
   routing_config          = "${var.additional_version_weights != null ? list(var.additional_version_weights) : local.empty_array}"
   filename                = "${var.dummy_enabled ? "${path.module}/index.zip" : var.filename}"
