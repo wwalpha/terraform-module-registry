@@ -2,7 +2,7 @@
 # AWS Lambda Alias
 # ------------------------------------------
 resource "aws_lambda_alias" "this" {
-  depends_on = ["aws_lambda_function.this", "aws_lambda_function.dummy"]
+  depends_on = [aws_lambda_function.this, aws_lambda_function.dummy]
 
   name             = "${var.alias_name}"
   description      = "${var.alias_description}"
