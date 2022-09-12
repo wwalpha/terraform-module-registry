@@ -19,7 +19,7 @@ resource "aws_lambda_alias" "this" {
 
   lifecycle {
     create_before_destroy = false
-    ignore_changes        = ["function_version"]
+    ignore_changes        = [function_version]
   }
 
   count = "${var.alias_name == null ? 0 : 1}"
